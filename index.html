@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>iOS Developer Roadmap 2026 — Learn Swift, Xcode & App Development</title>
+<meta name="description" content="A step by step roadmap for learning Swift, Xcode and iOS app development in 2026, with live mentor led training in Pune.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#12121d;
+    --bg-elevated:#191927;
+    --bg-card:#1e1e30;
+    --border:#2d2d45;
+    --swift-orange:#fa7343;
+    --sky-blue:#5ac8fa;
+    --mint:#63e6be;
+    --text-primary:#f1f0f7;
+    --text-secondary:#9d9cb8;
+    --text-dim:#6c6b8a;
+    --radius-window:10px;
+    --radius-card:14px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--bg);
+    color:var(--text-primary);
+    font-family:'Inter',sans-serif;
+    line-height:1.6;
+    overflow-x:hidden;
+  }
+  a{color:inherit;text-decoration:none;}
+  img{max-width:100%;display:block;}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 24px;}
+  code, .mono{font-family:'JetBrains Mono',monospace;}
+
+  /* ---------- Header ---------- */
+  header{
+    position:sticky;top:0;z-index:50;
+    background:rgba(18,18,29,0.85);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--border);
+  }
+  .nav{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:16px 24px;max-width:1120px;margin:0 auto;
+  }
+  .logo{
+    display:flex;align-items:center;gap:10px;
+    font-family:'JetBrains Mono',monospace;
+    font-weight:700;font-size:16px;letter-spacing:-0.02em;
+  }
+  .logo-dot{
+    width:10px;height:10px;border-radius:50%;
+    background:var(--swift-orange);
+    box-shadow:0 0 12px var(--swift-orange);
+  }
+  .nav-links{display:flex;gap:32px;font-size:14.5px;color:var(--text-secondary);}
+  .nav-links a{transition:color .2s ease;}
+  .nav-links a:hover{color:var(--text-primary);}
+  .nav-cta{
+    background:var(--swift-orange);color:#1a0f08;
+    padding:9px 18px;border-radius:8px;font-size:14px;font-weight:600;
+    transition:transform .15s ease, box-shadow .15s ease;
+  }
+  .nav-cta:hover{transform:translateY(-1px);box-shadow:0 6px 18px rgba(250,115,67,0.35);}
+  .nav-toggle{display:none;}
+
+  /* ---------- Hero ---------- */
+  .hero{
+    padding:88px 0 70px;
+    display:grid;grid-template-columns:1.05fr 0.95fr;gap:56px;align-items:center;
+  }
+  .eyebrow-line{
+    display:flex;align-items:center;gap:10px;
+    color:var(--sky-blue);font-family:'JetBrains Mono',monospace;
+    font-size:13px;margin-bottom:22px;
+  }
+  .eyebrow-line::before{content:"//";color:var(--text-dim);}
+  h1{
+    font-size:clamp(34px,4.6vw,54px);
+    font-weight:800;line-height:1.08;letter-spacing:-0.02em;
+    margin-bottom:22px;
+  }
+  h1 .accent{color:var(--swift-orange);}
+  .hero p.lede{
+    font-size:17.5px;color:var(--text-secondary);max-width:480px;margin-bottom:32px;
+  }
+  .hero-actions{display:flex;gap:14px;flex-wrap:wrap;}
+  .btn-primary{
+    background:var(--swift-orange);color:#1a0f08;font-weight:600;
+    padding:14px 26px;border-radius:9px;font-size:15px;
+    transition:transform .15s ease, box-shadow .15s ease;
+  }
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(250,115,67,0.3);}
+  .btn-ghost{
+    border:1px solid var(--border);color:var(--text-primary);
+    padding:14px 26px;border-radius:9px;font-size:15px;font-weight:500;
+    transition:border-color .15s ease, background .15s ease;
+  }
+  .btn-ghost:hover{border-color:var(--sky-blue);background:rgba(90,200,250,0.06);}
+
+  /* Terminal window */
+  .window{
+    background:var(--bg-elevated);
+    border:1px solid var(--border);
+    border-radius:var(--radius-window);
+    overflow:hidden;
+    box-shadow:0 30px 80px -20px rgba(0,0,0,0.6);
+  }
+  .window-bar{
+    display:flex;align-items:center;gap:8px;
+    padding:12px 16px;background:var(--bg-card);
+    border-bottom:1px solid var(--border);
+  }
+  .dot{width:11px;height:11px;border-radius:50%;}
+  .dot.red{background:#ff5f57;}
+  .dot.yellow{background:#febc2e;}
+  .dot.green{background:#28c840;}
+  .window-title{
+    margin:0 auto;transform:translateX(-16px);
+    font-family:'JetBrains Mono',monospace;font-size:12.5px;color:var(--text-dim);
+  }
+  .window-body{
+    padding:22px 22px 26px;
+    font-family:'JetBrains Mono',monospace;font-size:13.5px;
+    color:#c9c8e0;min-height:250px;
+  }
+  .window-body .ln{color:var(--text-dim);display:inline-block;width:22px;user-select:none;}
+  .kw{color:var(--sky-blue);}
+  .str{color:var(--mint);}
+  .cmt{color:var(--text-dim);}
+  .fn{color:#c792ea;}
+  .cursor{
+    display:inline-block;width:7px;height:15px;background:var(--swift-orange);
+    animation:blink 1s steps(1) infinite;vertical-align:middle;margin-left:2px;
+  }
+  @keyframes blink{50%{opacity:0;}}
+
+  /* ---------- Section shared ---------- */
+  section{padding:80px 0;}
+  .section-head{max-width:600px;margin-bottom:48px;}
+  .section-tag{
+    font-family:'JetBrains Mono',monospace;color:var(--swift-orange);
+    font-size:13px;margin-bottom:12px;
+  }
+  h2{font-size:clamp(26px,3.2vw,36px);font-weight:800;letter-spacing:-0.02em;margin-bottom:14px;}
+  .section-head p{color:var(--text-secondary);font-size:16px;}
+
+  /* ---------- Roadmap timeline ---------- */
+  .timeline{position:relative;padding-left:8px;}
+  .timeline::before{
+    content:"";position:absolute;left:29px;top:6px;bottom:6px;width:2px;
+    background:linear-gradient(var(--swift-orange), var(--sky-blue), var(--mint));
+    opacity:0.4;
+  }
+  .t-item{
+    position:relative;display:grid;grid-template-columns:60px 1fr;gap:20px;
+    padding:22px 0;
+  }
+  .t-num{
+    width:60px;height:60px;border-radius:50%;
+    background:var(--bg-card);border:1px solid var(--border);
+    display:flex;align-items:center;justify-content:center;
+    font-family:'JetBrains Mono',monospace;font-weight:700;font-size:15px;color:var(--swift-orange);
+    z-index:2;
+  }
+  .t-body h3{font-size:19px;font-weight:700;margin-bottom:8px;}
+  .t-body p{color:var(--text-secondary);font-size:15px;max-width:640px;}
+  .t-body .t-meta{
+    font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--sky-blue);
+    margin-bottom:6px;display:inline-block;
+  }
+
+  /* ---------- Skills grid ---------- */
+  .skills-grid{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:18px;
+  }
+  .skill-card{
+    background:var(--bg-card);border:1px solid var(--border);
+    border-radius:var(--radius-card);padding:26px;
+    transition:border-color .2s ease, transform .2s ease;
+  }
+  .skill-card:hover{border-color:var(--swift-orange);transform:translateY(-4px);}
+  .skill-icon{
+    width:40px;height:40px;border-radius:9px;
+    display:flex;align-items:center;justify-content:center;
+    font-family:'JetBrains Mono',monospace;font-weight:700;font-size:15px;
+    margin-bottom:16px;
+  }
+  .skill-card h4{font-size:16.5px;font-weight:700;margin-bottom:8px;}
+  .skill-card p{font-size:14px;color:var(--text-secondary);}
+
+  /* ---------- Courses ---------- */
+  .courses-grid{
+    display:grid;grid-template-columns:repeat(2,1fr);gap:18px;
+  }
+  .course-card{
+    display:flex;align-items:center;justify-content:space-between;gap:16px;
+    background:var(--bg-card);border:1px solid var(--border);
+    border-radius:var(--radius-card);padding:24px 26px;
+    transition:border-color .2s ease, background .2s ease;
+  }
+  .course-card:hover{border-color:var(--sky-blue);background:#212138;}
+  .course-left{display:flex;align-items:center;gap:16px;}
+  .course-glyph{
+    width:44px;height:44px;border-radius:12px;flex-shrink:0;
+    display:flex;align-items:center;justify-content:center;font-size:19px;
+  }
+  .course-name{font-weight:700;font-size:15.5px;margin-bottom:4px;}
+  .course-loc{font-size:12.5px;color:var(--text-dim);font-family:'JetBrains Mono',monospace;}
+  .course-arrow{color:var(--text-dim);font-size:18px;transition:transform .2s ease, color .2s ease;}
+  .course-card:hover .course-arrow{transform:translateX(4px);color:var(--sky-blue);}
+
+  /* ---------- Resources ---------- */
+  .resources-list{display:flex;flex-direction:column;border-top:1px solid var(--border);}
+  .resource-row{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:22px 4px;border-bottom:1px solid var(--border);
+    transition:padding-left .2s ease;
+  }
+  .resource-row:hover{padding-left:10px;}
+  .resource-left{display:flex;align-items:baseline;gap:16px;}
+  .resource-index{font-family:'JetBrains Mono',monospace;color:var(--text-dim);font-size:13px;}
+  .resource-title{font-weight:600;font-size:16px;}
+  .resource-tag{
+    font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--mint);
+    border:1px solid rgba(99,230,190,0.3);padding:3px 9px;border-radius:20px;
+  }
+
+  /* ---------- CTA band ---------- */
+  .cta-band{
+    background:linear-gradient(135deg,#1d1830,#231830);
+    border:1px solid var(--border);border-radius:20px;
+    padding:56px 44px;text-align:center;position:relative;overflow:hidden;
+  }
+  .cta-band::before{
+    content:"";position:absolute;top:-60%;right:-10%;width:400px;height:400px;
+    background:radial-gradient(circle,rgba(250,115,67,0.18),transparent 70%);
+  }
+  .cta-band h2{margin-bottom:14px;}
+  .cta-band p{color:var(--text-secondary);max-width:480px;margin:0 auto 30px;}
+
+  /* ---------- Footer ---------- */
+  footer{border-top:1px solid var(--border);padding:56px 0 32px;background:var(--bg-elevated);}
+  .footer-grid{
+    display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;margin-bottom:40px;
+  }
+  .footer-brand p{color:var(--text-secondary);font-size:14.5px;margin-top:14px;max-width:280px;}
+  .footer-col h5{font-size:13px;color:var(--text-dim);font-family:'JetBrains Mono',monospace;margin-bottom:16px;}
+  .footer-col a{display:block;color:var(--text-secondary);font-size:14.5px;margin-bottom:12px;transition:color .2s ease;}
+  .footer-col a:hover{color:var(--sky-blue);}
+  .footer-bottom{
+    border-top:1px solid var(--border);padding-top:24px;
+    display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;
+    font-size:13px;color:var(--text-dim);font-family:'JetBrains Mono',monospace;
+  }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width:860px){
+    .hero{grid-template-columns:1fr;padding-top:56px;}
+    .nav-links{display:none;}
+    .skills-grid{grid-template-columns:repeat(2,1fr);}
+    .courses-grid{grid-template-columns:1fr;}
+    .footer-grid{grid-template-columns:1fr;gap:28px;}
+  }
+  @media (max-width:520px){
+    .skills-grid{grid-template-columns:1fr;}
+    .cta-band{padding:40px 22px;}
+    .t-item{grid-template-columns:44px 1fr;gap:14px;}
+    .t-num{width:44px;height:44px;font-size:13px;}
+  }
+
+  @media (prefers-reduced-motion:reduce){
+    *{animation:none !important;transition:none !important;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="nav">
+    <div class="logo"><span class="logo-dot"></span>roadmap.ios</div>
+    <div class="nav-links">
+      <a href="#roadmap">Roadmap</a>
+      <a href="#skills">Skills</a>
+      <a href="#courses">Courses</a>
+      <a href="#resources">Resources</a>
+    </div>
+    <a class="nav-cta" href="https://www.justacademy.co/course-detail/pune/ios-training-in-pune" target="_blank" rel="noopener">View Course</a>
+  </nav>
+</header>
+
+<main>
+  <section class="hero wrap">
+    <div>
+      <div class="eyebrow-line">iOS Developer Roadmap 2026</div>
+      <h1>Learn Swift, ship on <span class="accent">Xcode</span>,<br>build for the App Store.</h1>
+      <p class="lede">A grounded, month by month path from your first line of Swift to a portfolio ready iOS app, taught live by mentors instead of another unfinished playlist of videos.</p>
+      <div class="hero-actions">
+        <a class="btn-primary" href="https://www.justacademy.co/course-detail/pune/ios-training-in-pune" target="_blank" rel="noopener">Start with iOS in Pune</a>
+        <a class="btn-ghost" href="#roadmap">See the roadmap ↓</a>
+      </div>
+    </div>
+
+    <div class="window">
+      <div class="window-bar">
+        <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+        <span class="window-title">roadmap.swift</span>
+      </div>
+      <div class="window-body" id="typewriter"></div>
+    </div>
+  </section>
+
+  <section id="roadmap" class="wrap">
+    <div class="section-head">
+      <div class="section-tag">01 · the path</div>
+      <h2>Four stages, no shortcuts</h2>
+      <p>Every capable iOS developer moves through the same rough sequence. Here is what actually happens at each stage, and roughly how long it takes.</p>
+    </div>
+
+    <div class="timeline">
+      <div class="t-item">
+        <div class="t-num">01</div>
+        <div class="t-body">
+          <span class="t-meta">months 01–02</span>
+          <h3>Swift language and core logic</h3>
+          <p>Variables, optionals, closures and control flow. This is where swift syntax stops feeling foreign and starts feeling like a tool you actually reach for.</p>
+        </div>
+      </div>
+      <div class="t-item">
+        <div class="t-num">02</div>
+        <div class="t-body">
+          <span class="t-meta">months 03–04</span>
+          <h3>Xcode, SwiftUI and the interface layer</h3>
+          <p>Interface Builder, the simulator, debugging, and building your first working screens with SwiftUI's declarative approach to layout.</p>
+        </div>
+      </div>
+      <div class="t-item">
+        <div class="t-num">03</div>
+        <div class="t-body">
+          <span class="t-meta">months 05–06</span>
+          <h3>Networking, storage and real app logic</h3>
+          <p>APIs, Core Data, authentication flows. This is where custom iOS app development starts to feel like actual professional work.</p>
+        </div>
+      </div>
+      <div class="t-item">
+        <div class="t-num">04</div>
+        <div class="t-body">
+          <span class="t-meta">month 07 onward</span>
+          <h3>Portfolio and App Store submission</h3>
+          <p>Polish two or three real apps, understand provisioning and signing, and submit with confidence instead of guesswork.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills" class="wrap">
+    <div class="section-head">
+      <div class="section-tag">02 · what you'll actually use</div>
+      <h2>Core skills worth mastering</h2>
+      <p>Not everything in the App Store's documentation matters equally when you're starting out. These are the ones that show up in real projects and real interviews.</p>
+    </div>
+
+    <div class="skills-grid">
+      <div class="skill-card">
+        <div class="skill-icon" style="background:rgba(250,115,67,0.14);color:var(--swift-orange);">Sw</div>
+        <h4>Swift programming</h4>
+        <p>The language underneath everything, from small utilities to production grade apps.</p>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon" style="background:rgba(90,200,250,0.14);color:var(--sky-blue);">UI</div>
+        <h4>SwiftUI &amp; UIKit</h4>
+        <p>One for building fast today, one for reading the codebases you'll inherit tomorrow.</p>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon" style="background:rgba(99,230,190,0.14);color:var(--mint);">Xc</div>
+        <h4>Xcode &amp; the SDK</h4>
+        <p>Debugger, simulator, Instruments — the workshop every serious iOS build happens inside.</p>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon" style="background:rgba(199,146,234,0.14);color:#c792ea;">Gt</div>
+        <h4>Version control</h4>
+        <p>Git habits and code review comfort, because no real app ships from one solo branch.</p>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon" style="background:rgba(250,115,67,0.14);color:var(--swift-orange);">HI</div>
+        <h4>Human Interface Guidelines</h4>
+        <p>Apple's own rulebook for what makes an app feel native instead of just functional.</p>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon" style="background:rgba(90,200,250,0.14);color:var(--sky-blue);">Ap</div>
+        <h4>App Store readiness</h4>
+        <p>Provisioning, signing and review guidelines, so submission isn't a surprise.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="courses" class="wrap">
+    <div class="section-head">
+      <div class="section-tag">03 · learn live, from Pune</div>
+      <h2>Mentor led courses, taught live</h2>
+      <p>Delivered through live interactive sessions, with the same instructors and pace as the Mumbai classroom.</p>
+    </div>
+
+    <div class="courses-grid">
+      <a class="course-card" href="https://www.justacademy.co/course-detail/pune/ios-training-in-pune" target="_blank" rel="noopener">
+        <div class="course-left">
+          <div class="course-glyph" style="background:rgba(250,115,67,0.14);">📱</div>
+          <div>
+            <div class="course-name">iOS Development Training</div>
+            <div class="course-loc">pune · live · instructor led</div>
+          </div>
+        </div>
+        <span class="course-arrow">→</span>
+      </a>
+
+      <a class="course-card" href="https://www.justacademy.co/course-detail/pune/android-app-development-in-pune" target="_blank" rel="noopener">
+        <div class="course-left">
+          <div class="course-glyph" style="background:rgba(99,230,190,0.14);">🤖</div>
+          <div>
+            <div class="course-name">Android App Development</div>
+            <div class="course-loc">pune · live · instructor led</div>
+          </div>
+        </div>
+        <span class="course-arrow">→</span>
+      </a>
+
+      <a class="course-card" href="https://www.justacademy.co/course-detail/pune/flutter-training-in-pune" target="_blank" rel="noopener">
+        <div class="course-left">
+          <div class="course-glyph" style="background:rgba(90,200,250,0.14);">🦋</div>
+          <div>
+            <div class="course-name">Flutter Training</div>
+            <div class="course-loc">pune · live · instructor led</div>
+          </div>
+        </div>
+        <span class="course-arrow">→</span>
+      </a>
+
+      <a class="course-card" href="https://www.justacademy.co/course-detail/pune/react-native-training-in-pune" target="_blank" rel="noopener">
+        <div class="course-left">
+          <div class="course-glyph" style="background:rgba(199,146,234,0.14);">⚛️</div>
+          <div>
+            <div class="course-name">React Native Training</div>
+            <div class="course-loc">pune · live · instructor led</div>
+          </div>
+        </div>
+        <span class="course-arrow">→</span>
+      </a>
+    </div>
+  </section>
+
+  <section id="resources" class="wrap">
+    <div class="section-head">
+      <div class="section-tag">04 · keep reading</div>
+      <h2>Further reading</h2>
+      <p>A few longer guides worth bookmarking once the basics start to settle.</p>
+    </div>
+
+    <div class="resources-list">
+      <a class="resource-row" href="https://www.justacademy.co/blog-detail/ios-developer-roadmap-2026-learn-swift-xcode-app-development" target="_blank" rel="noopener">
+        <div class="resource-left">
+          <span class="resource-index">01</span>
+          <span class="resource-title">iOS Developer Roadmap 2026: Learn Swift, Xcode &amp; App Development</span>
+        </div>
+        <span class="resource-tag">guide</span>
+      </a>
+      <a class="resource-row" href="https://www.justacademy.co/blog-detail/ios-development-tutorials" target="_blank" rel="noopener">
+        <div class="resource-left">
+          <span class="resource-index">02</span>
+          <span class="resource-title">iOS Development Tutorials</span>
+        </div>
+        <span class="resource-tag">tutorial</span>
+      </a>
+      <a class="resource-row" href="https://www.justacademy.co/blog-detail/ios-developer-training" target="_blank" rel="noopener">
+        <div class="resource-left">
+          <span class="resource-index">03</span>
+          <span class="resource-title">iOS Developer Training, Explained</span>
+        </div>
+        <span class="resource-tag">program</span>
+      </a>
+    </div>
+  </section>
+
+  <section class="wrap">
+    <div class="cta-band">
+      <h2>Your first Swift file is one class away.</h2>
+      <p>Join a live session, meet the mentors, and see the full curriculum before you commit to anything.</p>
+      <a class="btn-primary" href="https://www.justacademy.co/course-detail/pune/ios-training-in-pune" target="_blank" rel="noopener">Explore the Pune iOS course</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo"><span class="logo-dot"></span>roadmap.ios</div>
+        <p>A field guide to becoming an iOS developer in 2026, built around live, mentor led training for learners in Pune.</p>
+      </div>
+      <div class="footer-col">
+        <h5>courses</h5>
+        <a href="https://www.justacademy.co/course-detail/pune/ios-training-in-pune" target="_blank" rel="noopener">iOS in Pune</a>
+        <a href="https://www.justacademy.co/course-detail/pune/android-app-development-in-pune" target="_blank" rel="noopener">Android in Pune</a>
+        <a href="https://www.justacademy.co/course-detail/pune/flutter-training-in-pune" target="_blank" rel="noopener">Flutter in Pune</a>
+        <a href="https://www.justacademy.co/course-detail/pune/react-native-training-in-pune" target="_blank" rel="noopener">React Native in Pune</a>
+      </div>
+      <div class="footer-col">
+        <h5>reading</h5>
+        <a href="https://www.justacademy.co/blog-detail/ios-developer-roadmap-2026-learn-swift-xcode-app-development" target="_blank" rel="noopener">The Full Roadmap</a>
+        <a href="https://www.justacademy.co/blog-detail/ios-development-tutorials" target="_blank" rel="noopener">Tutorials</a>
+        <a href="https://www.justacademy.co/blog-detail/ios-developer-training" target="_blank" rel="noopener">Training Guide</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 roadmap.ios — built for learners in Pune</span>
+      <span>swift · xcode · swiftui · uikit</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const lines = [
+    { n: '01', html: '<span class="cmt">// iOS Developer Roadmap — 2026</span>' },
+    { n: '02', html: '' },
+    { n: '03', html: '<span class="kw">enum</span> <span class="fn">Stage</span> {' },
+    { n: '04', html: '&nbsp;&nbsp;<span class="kw">case</span> <span class="str">"Swift fundamentals"</span>' },
+    { n: '05', html: '&nbsp;&nbsp;<span class="kw">case</span> <span class="str">"Xcode + SwiftUI"</span>' },
+    { n: '06', html: '&nbsp;&nbsp;<span class="kw">case</span> <span class="str">"Networking + storage"</span>' },
+    { n: '07', html: '&nbsp;&nbsp;<span class="kw">case</span> <span class="str">"App Store ready"</span>' },
+    { n: '08', html: '}' },
+    { n: '09', html: '' },
+    { n: '10', html: '<span class="fn">print</span>(<span class="str">"Let\'s build."</span>)' },
+  ];
+
+  const container = document.getElementById('typewriter');
+  let lineIndex = 0;
+
+  function typeNextLine(){
+    if(lineIndex >= lines.length){
+      const last = container.querySelector('.ln-row:last-child');
+      if(last) last.insertAdjacentHTML('beforeend', '<span class="cursor"></span>');
+      return;
+    }
+    const row = document.createElement('div');
+    row.className = 'ln-row';
+    row.innerHTML = '<span class="ln">' + lines[lineIndex].n + '</span>' + lines[lineIndex].html;
+    container.appendChild(row);
+    lineIndex++;
+    setTimeout(typeNextLine, 90);
+  }
+
+  window.addEventListener('DOMContentLoaded', () => {
+    setTimeout(typeNextLine, 300);
+  });
+</script>
+
+</body>
+</html>
